@@ -1,7 +1,7 @@
-import {marcus, julien, lea, serge, leo} from "./clients.js";
-import {devis, facture, rouleur, pneuCreve, feuAvantCasse, moteurEnPanne, huileAMoteurVide} from "./documents.js";
+import {devis, marcus, julien, lea, serge, leo} from "./clients.js";
 import {maison, salleAttente, bureau, caisse, lieuxOrdonnes} from "./lieux.js";
 import {norbert} from "./garagiste.js";
+
 
 function rendezVousclient(clientname){
     console.log("Bonjour " + clientname.nom + ". Prenez place dans la " + salleAttente.nom + " svp");
@@ -12,10 +12,21 @@ function rendezVousclient(clientname){
     console.log(salleAttente)
     console.log(bureau)
     console.log("Bonjour " + clientname.nom + " ça fait plaisir de vous revoir ! Quel est votre problème ?");
-    console.log("Mon problème vient du " + clientname.probleme)
-    let x = clientname.probleme;
-    console.log("Bien, nous allons nous en charger. Le prix pour cette réparation est de " + x.prix)
-
+    console.log("Mon problème vient du " + clientname.probleme.probleme)
+    norbert.faireDevis(clientname, devis)
+    clientname.payer(devis)
+    console.log("très bien, je passe à la caisse pour voir l'étendue et le prix des réparations")
+    clientname.seDeplacer(bureau, caisse)
+    console.log(bureau)
+    console.log(caisse)
+    console.log("Le prix de vos réparations s'élève à " + clientname.probleme.prix)
+    clientname.payer(clientname.probleme)
+    clientname.seDeplacer(caisse, maison)
+    console.log("/**** Client suivant ****\*")
 }
 
 rendezVousclient(marcus)
+rendezVousclient(lea)
+rendezVousclient(julien)
+rendezVousclient(serge)
+rendezVousclient(leo)
