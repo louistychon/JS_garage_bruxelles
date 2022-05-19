@@ -1,6 +1,7 @@
 class garagiste {
-    constructor(nom) {
+    constructor(nom, chiens) {
         this.nom = nom;
+        this.chiens = chiens;
         this.faireDevis = (client, devis) => {
             console.log("Bien, nous allons nous en charger. Le prix pour ce devis est de " + devis.prix)
             client.devis = `Devis: ${devis.prix}`;
@@ -11,7 +12,10 @@ class garagiste {
     }
 }
 
-let norbert = new garagiste("norbert");
+let norbert = new garagiste("norbert", "Berger allemand");
+var intervalId = window.setInterval(function aboie(){
+    console.log("wouf wouf")
+  }, 2000);
 
 export {
     norbert
