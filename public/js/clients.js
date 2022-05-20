@@ -18,13 +18,15 @@ class client {
             endroitarrive.personnes.push(this.nom);
             endroitdepart.personnes.splice(this.nom)
         }
-        this.payer = (document) => {
+        this.payer = (document, casse) => {
             if (this.argent > document.prix) {
                 this.argent -= document.prix
                 console.log("document payé, argent de " + this.nom + " ? " + this.argent)
             }
             else{
                 console.log("vous êtes pauvre, la voiture part à la casse !")
+                casse.vehicule.push(this.vehicule)
+                this.vehicule = "";
             }
         }
     }
