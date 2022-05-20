@@ -22,7 +22,7 @@ function rendezVousclient(clientname){
     console.log("Le prix de vos réparations s'élève à " + clientname.probleme.prix)
     clientname.payer(clientname.probleme, casse)
     clientname.seDeplacer(caisse, maison)
-    console.log(casse.vehicule)
+    console.log("casse : " + casse.vehicule)
     console.log("**** Client suivant *****")
 }
 
